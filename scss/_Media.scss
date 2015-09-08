@@ -1,0 +1,13 @@
+.media {
+    margin:10px;
+}
+.media,
+.media_body {
+    overflow:hidden;
+    _overflow:visible;
+    zoom:1;
+}
+.media img {
+    float:left;
+    margin-right: 10px;
+}

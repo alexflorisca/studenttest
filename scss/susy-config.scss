@@ -1,0 +1,9 @@
+$susy: (
+        columns: 12,
+        use-custom: (
+                rem: true,
+                clearfix: true
+        ),
+        gutters: .75,
+        global-box-sizing: border-box
+);
