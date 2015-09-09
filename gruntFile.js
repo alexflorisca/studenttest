@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'scss',
 					src: ['build.scss'],
-					dest: 'css',
+					dest: 'build/css',
 					ext: '.css'
 				}]
 			}
@@ -44,15 +44,37 @@ module.exports = function(grunt) {
 
 		// Watch
 		watch: {
-		  	files: ['js/**/*.js', 'scss/**/*.scss'],
-		  	tasks: ['sass', 'jshint', 'uglify']
-		}
+            js: {
+                files: ['scss/**/*.scss'],
+                tasks: ['sass']
+            },
+            css: {
+                files: ['js/**/*.js'],
+                tasks: ['browserify']
+            }
+		},
+
+
+        browserify: {
+            dev: {
+                options: {
+                    // Add source maps
+                    browserifyOptions: {
+                        debug: true
+                    }
+                },
+                src: [
+                    'js/main.js',
+                    'js/modules/**/*.js'
+                ],
+                dest: 'build/js/student.js'
+            }
+        }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browserify');
 
-	grunt.registerTask('default', ['sass', 'jshint', 'uglify', 'watch']);
+	grunt.registerTask('default', ['sass', 'browserify', 'watch']);
 };

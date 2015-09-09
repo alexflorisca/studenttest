@@ -1,0 +1,15 @@
+.Cover {
+    // Image not optimised
+    background-image: url('../img/cover.jpg');
+    background-size: cover;
+    height: 300px;
+
+    /* Can add responsive images like this:
+    @include breakpoint($bp-lap) {
+        background-image: url('../img/cover--medium.jpg');
+    }
+    @include breakpoint($bp-desk) {
+        background-image: url('../img/cover--large.jpg');
+    }
+    */
+}

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Animal Friendly Room | Student.com</title>
     <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/build.css">
+    <link rel="stylesheet" href="build/css/build.css">
 </head>
 <body>
-    <nav class="Container">
+    <nav>
        <ul class="Breadcrumbs">
            <li><a href="#">Home</a></li>
            <li><a href="#">Accommodations</a></li>
@@ -28,10 +28,15 @@
         <section class="Property">
             <div class="PropertyDetails">
                 <p class="PropertyDetails_rating">
-                    <span class="Icon Icon--rating"></span> Rated average of 4.7 by 277 students
+                    <span class="icon icon-star-full"></span>
+                    <span class="icon icon-star-full"></span>
+                    <span class="icon icon-star-full"></span>
+                    <span class="icon icon-star-full"></span>
+                    <span class="icon icon-star-half"></span>
+                    (4.7) Rated by 277 students
                 </p>
                 <p class="PropertyDetails_beds">
-                    <span class="Icon Icon--rating"></span> 588 total beds
+                    <span class="icon icon-bed"></span> 588 total beds
                 </p>
                 <button class="Btn Btn--primary">Contact an expert</button>
             </div>
@@ -43,18 +48,20 @@
         <section class="Room">
             <nav class="RoomNav">
                 <h2>Room Types</h2>
-                <ul>
-                    <li>Deluxe</li>
-                    <li>Shared</li>
-                    <li class="selected">Animal Friendly</li>
-                    <li>Super Deluxe</li>
-                    <li>Another room type</li>
+                <input type="checkbox" id="room-nav-checkbox" class="RoomNav_checkbox">
+                <ul class="RoomNav_menu">
+                    <li><a href="#">Deluxe</a></li>
+                    <li><a href="#">Shared</a></li>
+                    <li class="selected"><a href="#">Animal Friendly</a></li>
+                    <li><a href="#">Super Deluxe</a></li>
+                    <li><a href="#">Another room type</a></li>
                 </ul>
+                <label for="room-nav-checkbox" class="RoomNav_handle"></label>
             </nav>
 
-            <section class="RoomDetails">
+            <section class="RoomDetails" id="room" data-room-type="deluxe">
                 <div class="Room_header media">
-                    <img src="img/paw.png" alt="Animal Room">
+                    <img src="build/img/paw.png" alt="Animal Room">
                     <div class="media_body">
                         <h2>Animal Friendly Room</h2>
                         <p>The accommodation for pet lovers</p>
@@ -66,7 +73,7 @@
                     <p>Nullam eget mi id lacus tincidunt pretium. Cras feugiat ante sed scelerisque tincidunt. Pellentesque metus leo, maximus sit amet consequat in, facilisis sit amet risus. Suspendisse nisl tortor, aliquam aliquet erat ac, venenatis scelerisque diam. Nunc dapibus, lacus vitae fermentum vulputate, est eros fringilla purus, ac tincidunt velit orci vel turpis. Donec ullamcorper tortor sit amet venenatis accumsan. Donec at elit a orci malesuada venenatis.</p>
                 </div>
 
-                <p class="Room_social"><span class="Icon Icon--share"></span> John Doe, John Doe and 2 other friends stayed in this room</p>
+                <p class="Room_social"><span class="icon icon-share"></span> <span id="friends-message"><span></span></p>
 
                 <h3>Facilities</h3>
                 <ul class="Room_facilities">
@@ -86,5 +93,6 @@
             </section>
         </section>
     </article>
+    <script src="build/js/student.js"></script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+.Room {
+    @include breakpoint($bp-lap) {
+        @include container(12);
+    }
+}
+
+.RoomNav {
+    @include breakpoint($bp-lap) {
+        @include span(3);
+    }
+}
+.RoomDetails {
+    @include breakpoint($bp-lap) {
+        @include span(9 last);
+    }
+}
+
+.Room_facilities {
+    @extend .ListReset;
+    @include container(12 no-gutters);
+
+    padding-left: 20px;
+    text-indent: 2px;
+    list-style-position: outside;
+
+    & > li {
+        @include span(6 no-gutters);
+        @include breakpoint($bp-lap) {
+            @include span(3 no-gutters);
+        }
+    }
+
+    & > li.available:before {
+        font-family: 'icomoon';
+        content: '\ea10';
+        color: green;
+        margin-left: -1em;
+        margin-right: .300em;
+    }
+}
+
+.Room_header {
+    img {
+        width: auto;
+        height: 3.7em;
+        max-width: 100%;
+        float: left;
+        padding-right: 20px;
+    }
+
+    h2 {
+        margin: 0 0 .2em 0;
+
+    }
+}

@@ -1,1 +1,9 @@
+// Variables
+$bp-lap: 750px;
+$bp-desk: 1024px;
 
+$bp-palm-max: ($bp-lap -1);
+$bp-palm-only: max-width $bp-lap;
+
+$btn-border-radius: 4px;
+$color-primary: #22A7F0;

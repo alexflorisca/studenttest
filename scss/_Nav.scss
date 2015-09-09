@@ -1,0 +1,139 @@
+.Breadcrumbs {
+    @extend .ListReset;
+    overflow: hidden;
+
+    & > li {
+        float: left;
+
+        & > a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 0 5px 65px;
+            background: $color-primary;
+            position: relative;
+            display: block;
+            float: left;
+
+            &:after {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 20px solid transparent;           /* Go big on the size, and let overflow hide */
+                border-bottom: 20px solid transparent;
+                border-left: 30px solid $color-primary;
+                position: absolute;
+                top: 50%;
+                margin-top: -20px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            &:before {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 30px solid white;
+                position: absolute;
+                top: 50%;
+                margin-top: -20px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+.RoomNav {
+    min-height: 2em;
+    position: relative;
+}
+
+.RoomNav_menu {
+    @extend .ListReset;
+    transition: max-height .25s linear;
+
+    @include breakpoint($bp-palm-only) {
+        max-height: 0;
+        overflow: hidden;
+
+        & >  li {
+            visibility: hidden;
+            display: block;
+        }
+    }
+
+    & > li {
+        transition: visibility .25s linear;
+
+        &.selected {
+            background: $color-primary;
+
+            & > a {
+                color: white;
+            }
+        }
+
+        & > a {
+            display: block;
+            padding: .3em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            background-color: lighten($color-primary, 40%);
+        }
+    }
+}
+
+.RoomNav_checkbox:checked + .RoomNav_menu {
+    max-height: 300px;
+
+    & > li {
+        visibility: visible;
+    }
+}
+
+.RoomNav_checkbox {
+    display: none;
+}
+
+.RoomNav_handle {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    padding: .5em 0;
+    height: 0;
+    width: 30px;
+    border-top: 2px solid black;
+
+    @include breakpoint($bp-lap) {
+        display: none;
+    }
+
+    &:before, &:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        content: ' ';
+        border-top: 2px solid black;
+    }
+
+    &:before {
+        top: 7px;
+    }
+
+    &:after {
+        top: 16px;
+    }
+}
+

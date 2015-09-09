@@ -1,0 +1,26 @@
+
+.PropertyHeader {
+    @extend .Container;
+    display: inline-block;
+    margin-top: 120px;
+    padding:  10px 30px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.Property {
+    @include breakpoint($bp-lap) {
+        @include container(12);
+    }
+}
+.PropertyBlurb {
+    @include breakpoint($bp-lap) {
+        @include span(8);
+    }
+}
+.PropertyDetails {
+    margin-bottom: 20px;
+    @include breakpoint($bp-lap) {
+        @include span(4 last);
+    }
+}
